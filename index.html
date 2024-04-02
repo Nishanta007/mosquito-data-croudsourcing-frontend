@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mosquito Survey</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans"
+      rel="stylesheet"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="box-form">
+      <div class="left">
+        <div class="overlay">
+          <h1 style="font-size: 60px">Mosquito Survey</h1>
+          <h1>A Walk To End Disease.</h1>
+        </div>
+      </div>
+      <form class="right">
+        <div class="inputs">
+          <input id="name" type="text" placeholder="Name" />
+          <br />
+          <input id="email" type="email" placeholder="Email" />
+          <br />
+          <input id="phone" type="number" placeholder="Phone No." />
+          <br />
+          <input id="gender" type="text" placeholder="Gender" />
+          <br />
+          <input id="age" type="number" placeholder="Age" />
+          <br />
+          <div class="symptoms">
+            <h3>Symptoms :</h3>
+            <input type="checkbox" name="cough" id="cough" /><label for="cough">Cough</label>
+            <br/>
+            <input type="checkbox" name="fever" id="fever" /><label for="fever">Fever</label>
+            <br/>
+            <input type="checkbox" name="headache" id="headache" /><label for="headache">Headache</label>
+            <br/>
+            <input type="checkbox" name="vomiting" id="vomiting" /><label for="vomiting">Vomiting</label>
+            <br/>
+            <input type="checkbox" name="others" id="others" /><label for="others">Others</label>
+            <br/>
+          </div>
+          <div class="address">
+            <h3>Address :</h3>
+            <input id="villageOrTown" type="text" placeholder="Village/Town" />
+            <input id="district" type="text" placeholder="District" />
+            <br />
+            <input id="state" type="text" placeholder="State" />
+            <input id="country" type="text" placeholder="Country" />
+            <br />
+            <input id="pincode" type="text" placeholder="Pincode" />
+          </div>
+        </div>
+        <h3>Status :</h3>
+        <label for="diagnosed"
+          >Diagnosed<input
+            type="radio"
+            id="diagnosed"
+            name="status"
+            value="Diagnosed"
+            onchange="showAdditionalFields()"
+        /></label>
+        <label for="not_diagnosed"
+          >Not Diagnosed<input
+            type="radio"
+            id="not_diagnosed"
+            name="status"
+            value="Not Diagnosed"
+            onchange="hideAdditionalFields()"
+        /></label>
+        <div id="additionalFields"></div>
+        <br />
+        <button  id="submitForm" >Submit</button>
+      </form>
+    </div>
+
+    <script>
+      function showAdditionalFields() {
+        var status = document.querySelector(
+          'input[name="status"]:checked'
+        ).value;
+        var additionalFieldsDiv = document.getElementById("additionalFields");
+        if (status === "Diagnosed") {
+          additionalFieldsDiv.innerHTML = `
+          <br />
+		  Diagnosed with : <br />
+          <input class="diagnosedWith" type="radio" name="dengu" id="dengu" /> <label for="dengu">Dengu</label><br />
+          <input class="diagnosedWith" type="radio" name="chickungunya" id="chikungunya " /> <label for="chikungunya ">Chikungunya </label><br />
+          <input class="diagnosedWith" type="radio" name="malaria" id="malaria" /> <label for="malaria">Malaria</label><br />
+		  Date of Diagnosed : 
+          <input type="date" id="date_diagnosed" name="date_diagnosed" placeholder="Date Diagnosed" /><br />
+        `;
+        } else {
+          additionalFieldsDiv.innerHTML = "";
+        }
+      }
+
+      function hideAdditionalFields() {
+        var additionalFieldsDiv = document.getElementById("additionalFields");
+        additionalFieldsDiv.innerHTML = "";
+      }
+
+    </script>
+    <script src="./index.js"></script>
+  </body>
+</html>
