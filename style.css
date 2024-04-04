@@ -80,14 +80,28 @@ body {
   outline: none;
   border-bottom: 2px solid #B0B3B9;
 }
+.address select{
+  width: 40%;
+  padding: 5px;
+  margin-top: 5px;
+  font-size: 16px;
+  border: 1px solid gray;
+  /* border-bottom: 2px solid #B0B3B9; */
+}
+.address h4{
+  width: 20%;
+  padding: 5px;
+  margin-top: 5px;
+  font-size: 16px;
+  border: 1px solid gray;
+}
 .address input{
   width: 40%;
-  padding: 10px;
-  margin-top: 15px;
+  padding: 5px;
+  margin-top: 5px;
   font-size: 16px;
-  border: none;
-  outline: none;
-  border-bottom: 2px solid #B0B3B9;
+  border: 1px solid gray;
+  /* border-bottom: 2px solid #B0B3B9; */
 }
 .symptoms input{
   width: 5%;
@@ -96,6 +110,15 @@ body {
   border: none;
   outline: none;
   border-bottom: 2px solid #B0B3B9;
+}
+.gender input{
+  width: 5%;
+  margin-top: 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #B0B3B9;
+
 }
 
 .right button{
